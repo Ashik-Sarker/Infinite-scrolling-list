@@ -7,11 +7,11 @@ import auth from '../../firebase.init';
 const Navbar = () => {
     // const isTrue = false;
     const [user] = useAuthState(auth);
-    console.log(user);
+    // console.log(user);
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a href='/' className="btn btn-sm normal-case text-xl">Home</a>
+                <a href='/' className="btn btn-sm btn-outline normal-case text-xl">Find Your Best Photo</a>
             </div>
 
 

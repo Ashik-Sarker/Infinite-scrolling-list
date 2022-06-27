@@ -17,7 +17,6 @@ const Registration = () => {
         navigate('/');
     }
     
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -25,12 +24,12 @@ const Registration = () => {
         createUserWithEmailAndPassword(email, password);
     }
     return (
-        <div className='text-center mt-auto'>
-            <h1 className='text-2xl mb-4'>Registration here</h1>
+        <div className='text-center mt-12'>
+            <h1 className='text-2xl mb-4'>Registration Here</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" name='myName' placeholder="Your name" className="input input-bordered input-info w-full max-w-xs" /><br />
-                <input type="email" name='email' placeholder="your email" className="mt-4 input input-bordered input-info w-full max-w-xs" /><br />
-                <input type="password" name='password' placeholder="your password" className="mt-4 input input-bordered input-info w-full max-w-xs" /><br />
+                <input type="text" name='myName' placeholder="Your name" className="input input-bordered input-info w-full max-w-xs mt-4"/><br />
+                <input type="email" name='email' placeholder="your email" className="mt-4 input input-bordered input-info w-full max-w-xs" required /><br />
+                <input type="password" name='password' placeholder="your password" className="mt-4 input input-bordered input-info w-full max-w-xs" required /><br />
                 {
                     loading && <p className='text-secondary'>Loading...</p>
                 }
@@ -40,7 +39,9 @@ const Registration = () => {
 
             <p className='mt-2'>Already have an account? <span onClick={() => navigate('/login')} className='text-sm text-primary'>Login Please</span></p>
             
-            <div className='h-px bg-primary w-1/4 mx-auto my-6'></div>
+            <div class="flex flex-col w-full max-w-xs mx-auto border-opacity-50"> 
+                <div class="divider">OR</div>
+            </div>
 
             <SocialLogin />
             
