@@ -9,9 +9,9 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     // console.log(user);
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-gray-200">
             <div className="flex-1">
-                <a href='/' className="btn btn-sm btn-outline normal-case text-xl">Find Your Best Photo</a>
+                <a href='/' className="btn btn-sm btn-outline btn-primary normal-case text-xl">Find Your Best Photo</a>
             </div>
 
 
@@ -23,24 +23,24 @@ const Navbar = () => {
                     <div className="dropdown dropdown-end">
                         <label tabindex="0" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                            <img src="https://api.lorem.space/image/face?hash=33791" />
+                            <img src="https://api.lorem.space/image/face?hash=33791" alt=''/>
                             </div>
                         </label>
                         <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                            <a className="justify-between">
+                            <a className="justify-between text-primary">
                                 Profile
                                 <span className="badge">New</span>
                             </a>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><button onClick={()=> signOut(auth)} className='btn btn-outline'>Logout</button></li>
+                            <li><a className='text-primary'>Settings</a></li>
+                            <li><button onClick={()=> signOut(auth)} className='btn btn-outline btn-primary'>Logout</button></li>
                         </ul>
                     </div>
                     :
                     <>
-                    <button className='btn btn-outline btn-sm mr-4'><Link to="/login">Login</Link></button>
-                    <button className='btn btn-outline btn-sm'><Link to="/registration">Registration</Link></button>
+                    <button className='btn btn-outline btn-primary btn-sm mr-4'><Link to="/login">Login</Link></button>
+                    <button className='btn btn-outline btn-primary btn-sm'><Link to="/registration">Registration</Link></button>
                     </>
                 }
                 

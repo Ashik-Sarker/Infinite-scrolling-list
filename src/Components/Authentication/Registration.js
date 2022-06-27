@@ -25,13 +25,13 @@ const Registration = () => {
     }
     return (
         <div className='text-center mt-12'>
-            <h1 className='text-2xl mb-4'>Registration Here</h1>
+            <h1 className='text-2xl mb-4 text-primary font-semibold'>Registration Here</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" name='myName' placeholder="Your name" className="input input-bordered input-info w-full max-w-xs mt-4"/><br />
                 <input type="email" name='email' placeholder="your email" className="mt-4 input input-bordered input-info w-full max-w-xs" required /><br />
                 <input type="password" name='password' placeholder="your password" className="mt-4 input input-bordered input-info w-full max-w-xs" required /><br />
                 {
-                    loading && <p className='text-secondary'>Loading...</p>
+                    loading && <p className='text-primary'>Loading...</p>
                 }
                 <p className='text-secondary'>{error?.message}</p>
                 <input type="submit" className="btn btn-primary mt-4 w-full max-w-xs" />

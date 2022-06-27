@@ -44,7 +44,7 @@ const Home = () => {
                 </InfiniteScroll>
             </div>
             {
-                isLoading && <p className='text-center text-2xl'>Loading...</p>
+                isLoading && <p className='text-center text-2xl mb-24 mt-6'>Loading...</p>
             }
         </div>
     );
