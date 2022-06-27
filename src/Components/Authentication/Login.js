@@ -2,10 +2,13 @@ import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,useLocation} from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
@@ -13,11 +16,17 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    if(user){
+        alert("successfully login");
+        // navigate("/");
+        navigate(from, { replace: true });
+    }
+
     const handleSignIn = event => {
         event.preventDefault();
-        const email = event.target.value.email;
-        const password = event.target.value.password;
-        signInWithEmailAndPassword(email,password)
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        signInWithEmailAndPassword(email, password);
     }
 
     return (
@@ -26,10 +35,17 @@ const Login = () => {
             <form onSubmit={handleSignIn}>
                 <input type="email" name='email' placeholder="your email" className="mt-4 input input-bordered input-info w-full max-w-xs" /><br />
                 <input type="password" name='password' placeholder="your password" className="mt-4 input input-bordered input-info w-full max-w-xs" /><br />
+                {
+                    loading && <p className='text-secondary'>Loading...</p>
+                }
+                <p className='text-secondary'>{error?.message}</p>
                 <input type="submit" className="btn btn-primary mt-4 w-full max-w-xs" />
             </form>
-            <p>Are you new? <span onClick={() => navigate('/registration')} className='text-sm text-primary'>create an account</span></p>
-             <div className='h-px bg-primary w-1/4 mx-auto my-6'></div>
+
+            <p className='mt-2'>Are you new? <span onClick={() => navigate('/registration')} className='text-sm text-primary'>create an account</span></p>
+
+            <div className='h-px bg-primary w-1/4 mx-auto my-6'></div>
+
             <SocialLogin/>
         </div>
     );

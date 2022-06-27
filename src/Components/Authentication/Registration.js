@@ -37,8 +37,11 @@ const Registration = () => {
                 <p className='text-secondary'>{error?.message}</p>
                 <input type="submit" className="btn btn-primary mt-4 w-full max-w-xs" />
             </form>
-            <p>Already have an account? <span onClick={()=> navigate('/login')} className='text-sm text-primary'>Login Please</span></p>
+
+            <p className='mt-2'>Already have an account? <span onClick={() => navigate('/login')} className='text-sm text-primary'>Login Please</span></p>
+            
             <div className='h-px bg-primary w-1/4 mx-auto my-6'></div>
+
             <SocialLogin />
             
         </div>
